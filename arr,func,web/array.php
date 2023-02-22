@@ -8,3 +8,5 @@ echo 'Idades do array ->' . PHP_EOL;
 for ($i = 0; $i < count($ageList); $i++) {
     echo "{$i} - {$ageList[$i]}" . PHP_EOL;
 }
+
+
