@@ -1,9 +1,11 @@
 <?php
 
-class Account
+namespace Alura\Bank\Model\Account;
+
+abstract class Account
 {
   private readonly Holder $holder;
-  private float $balance;
+  protected float $balance;
 
   private static int $numberOfAccounts = 0;
 
@@ -23,35 +25,28 @@ class Account
     self::$numberOfAccounts--;
   }
 
+  abstract protected function tariffPercent(): float;
+
   public function withdraw(float $value): void
   {
-    if ($value > $this->balance) {
+    $tariff = $value * $this->tariffPercent();
+    $tariffValue = $tariff + $value;
+    if ($tariffValue > $this->balance) {
       echo 'Saldo indisponível!';
       return;
     }
 
-    $this->balance -= $value;
+    $this->balance -= $tariffValue;
   }
 
   public function deposit(float $value): void
   {
     if ($value <= 0) {
-      echo 'O valor precisa ser positivo!';
+      echo 'O valor precisa ser maior do que zero!';
       return;
     }
 
     $this->balance += $value;
-  }
-
-  public function transfer(Account $destinationAccount, float $value): void
-  {
-    if ($value > $this->balance) {
-      echo 'Saldo indisponível!';
-      return;
-    }
-
-    $this->withdraw($value);
-    $destinationAccount->deposit($value);
   }
 
   public function getBalance(): float
