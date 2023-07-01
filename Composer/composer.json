@@ -1,0 +1,32 @@
+{
+    "name": "nathanmarques2001/get-alura-courses",
+    "description": "Search for courses on the Alura website",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Composer\\GetAluraCourses\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "NathanMarques2001",
+            "email": "nathanmarques20@yahoo.com.br"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.7",
+        "symfony/dom-crawler": "^6.3",
+        "symfony/css-selector": "^6.3"
+    },
+    "scripts": {
+        "create-cache": "mkdir cache",
+        "add-file": "touch cache/file.txt",
+        "clear-cache": "rm -rf cache",
+        "check": [
+            "@create-cache",
+            "@add-file",
+            "@clear-cache"
+        ]
+    }
+}
