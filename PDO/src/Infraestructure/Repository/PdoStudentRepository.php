@@ -1,17 +1,20 @@
 <?php
 
+namespace Alura\Pdo\Infraestructure\Repository;
+
 use Alura\Pdo\Domain\Model\Student;
 use Alura\Pdo\Repository\StudentRepository;
-use Alura\Pdo\Infraestructure\Persistence\Connection;
+use PDO;
+use PDOStatement;
 
 class PdoStudentRepository implements StudentRepository
 {
 
   private PDO $connection;
 
-  public function __construct()
+  public function __construct(PDO $connection)
   {
-    $this->connection = Connection::createConnection();
+    $this->connection = $connection;
   }
 
   public function allStudents(): array
@@ -62,6 +65,10 @@ class PdoStudentRepository implements StudentRepository
     $statement = $this->connection->prepare($sqlInsert);
     $statement->bindValue(':name', $newStudent->name());
     $statement->bindValue(':birth_date', $newStudent->birthDate()->format('Y-m-d'));
+
+    if ($statement === false) {
+      throw new \RuntimeException($this->connection->errorInfo()[2]);
+    }
 
     return $statement->execute();
   }
