@@ -1,0 +1,35 @@
+Capítulo 1
+    1.1. 7
+    1.2. 8
+    1.3. O(log n)
+    1.4. O(n)
+    1.5. O(n)
+    1.6. O(n/26)
+========================
+Capítulo 2
+    2.1. Lista
+    2.2. Lista
+    2.3. Array
+    2.4. Array é lento para inserir. É necesário reodenar o array e
+    ele deve buscar outra posição em memória que caiba todo o array sequencialmente.
+    2.5. Para busca: Mais lento que um array e mais rápido que uma lista encadeada.
+    Para inserção: Mais rápido que um array e mesmo tempo para uma lista encadeada.
+========================
+Capítulo 3
+    3.1. A função sauda 2 foi chamado antes da função sauda acabar. Logo,
+    a função sauda só será finalizada assim que terminar a execução de sauda 2.
+    3.2. Overflow.
+========================
+Capítulo 4
+    4.4. Caso base: um array com um elemento.
+    Caso recursivo: a quantidade atual de elementos divido por dois, onde uma
+    das metades é descartada.
+    Ex: n = n / 2;
+    4.5. O(n)
+    4.6 O(n)
+    4.7. O(1)
+    4.8 O(n²)
+========================
+Capítulo 5
+    5.1.
+========================
